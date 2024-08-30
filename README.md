@@ -5,7 +5,7 @@ The Turso Platform API Library is a PHP library that provides a simple and effic
 ## Installation
 
 ```bash
-composer require darkterminal/turso-platform-api
+composer require darkterminal/turso-api-client-php
 ```
 
 ## Platforms APIs Usages
