@@ -1,36 +1,36 @@
 {
-  "name": "darkterminal/turso-api-client-php",
-  "version": "0.0.0",
-  "description": "Turso Platform API",
-  "type": "library",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Imam Ali Mustofa",
-      "email": "darkterminal@duck.com",
-      "role": "Software Freestyle Engineer",
-      "homepage": "https://github.com/darkterminal"
-    }
-  ],
-  "funding": [
-    {
-      "type": "github",
-      "url": "https://github.com/sponsors/darkterminal"
+    "name": "darkterminal/turso-api-client-php",
+    "version": "v0.0.1",
+    "description": "Turso Platform API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Imam Ali Mustofa",
+            "email": "darkterminal@duck.com",
+            "role": "Software Freestyle Engineer",
+            "homepage": "https://github.com/darkterminal"
+        }
+    ],
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/darkterminal"
+        },
+        {
+            "type": "other",
+            "url": "https://saweria.co/darkterminal"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Darkterminal\\TursoPlatformAPI\\": "src/"
+        },
+        "files": [
+            "src/core/helpers.php"
+        ]
     },
-    {
-      "type": "other",
-      "url": "https://saweria.co/darkterminal"
+    "require": {
+        "php": "^8.1"
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "Darkterminal\\TursoPlatformAPI\\": "src/"
-    },
-    "files": [
-      "src/core/helpers.php"
-    ]
-  },
-  "require": {
-    "php": "^8.1"
-  }
 }
