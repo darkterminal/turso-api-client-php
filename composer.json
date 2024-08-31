@@ -1,6 +1,6 @@
 {
     "name": "darkterminal/turso-api-client-php",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Turso Platform API",
     "type": "library",
     "license": "MIT",
