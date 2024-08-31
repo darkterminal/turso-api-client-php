@@ -114,14 +114,18 @@ final class Databases implements Response
         $endpoint = Utils::useAPI('databases', 'create');
         $url = \str_replace('{organizationName}', $this->organizationName, $endpoint['url']);
 
-        $groups = new Groups($this->token, $this->organizationName);
-        $response = $groups->getGroup($group)->get();
-
-        if (HttpResponse::tryFrom($response['code'])->statusMessage() !== 'OK') {
-            $created = $groups->create($group)->get();
-            $params['group'] = $created['data']['name'];
+        if (!empty(getenv('TURSO_DB_DEFAULT_GROUP'))) {
+            $params['group'] = getenv('TURSO_DB_DEFAULT_GROUP');
         } else {
-            $params['group'] = $group;
+            $groups = new Groups($this->token, $this->organizationName);
+            $response = $groups->getGroup($group)->get();
+
+            if (HttpResponse::tryFrom($response['code'])->statusMessage() !== 'OK') {
+                $created = $groups->create($group)->get();
+                $params['group'] = $created['data']['name'];
+            } else {
+                $params['group'] = getenv('TURSO_DB_DEFAULT_GROUP');
+            }
         }
 
         if (!empty($seed)) {
@@ -701,7 +705,7 @@ final class Databases implements Response
 
         $body = [];
         if (!empty($attach_databases)) {
-            array_push($body, [
+            array_merge($body, [
                 'permissions' => [
                     'read_attach' => [
                         'databases' => $attach_databases

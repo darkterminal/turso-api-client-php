@@ -250,7 +250,7 @@ final class Groups implements Response
                 ];
             }
         }
-        
+
         $this->response['delete_location'] = [
             'code' => $response['code'],
             'data' => $response['body']['group']
@@ -321,7 +321,7 @@ final class Groups implements Response
                 ];
             }
         }
-        
+
         $this->response['unarchive_group'] = [
             'code' => $response['code'],
             'data' => $response['body']['group']
@@ -393,7 +393,7 @@ final class Groups implements Response
 
         $body = [];
         if (!empty($attach_databases)) {
-            array_push($body, [
+            array_merge($body, [
                 'permissions' => [
                     'read_attach' => [
                         'databases' => $attach_databases

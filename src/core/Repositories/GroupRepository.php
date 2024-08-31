@@ -2,7 +2,6 @@
 
 namespace Darkterminal\TursoPlatformAPI\core\Repositories;
 
-
 class GroupRepository
 {
     public static function endpoints($action): array
@@ -48,7 +47,7 @@ class GroupRepository
                 'method' => 'POST',
                 'url' => platform_api_url('/organizations/{organizationName}/groups/{groupName}/auth/tokens')
             ],
-            'invalidete_tokens' => [
+            'invalidate_tokens' => [
                 'method' => 'POST',
                 'url' => platform_api_url('/organizations/{organizationName}/groups/{groupName}/auth/rotate')
             ]
