@@ -67,6 +67,7 @@ final class AuditLogs implements Response
                     'code' => HttpResponse::NOT_FOUND,
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
         $this->response['list_audit_logs'] = [

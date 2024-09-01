@@ -2,6 +2,7 @@
 
 namespace Darkterminal\TursoPlatformAPI\core\Platforms;
 
+use Darkterminal\TursoPlatformAPI\core\Enums\HttpResponse;
 use Darkterminal\TursoPlatformAPI\core\PlatformError;
 use Darkterminal\TursoPlatformAPI\core\Response;
 use Darkterminal\TursoPlatformAPI\core\Utils;
@@ -41,12 +42,24 @@ final class Locations implements Response
     public function getLocations(): Locations
     {
         $endpoint = Utils::useAPI('locations', 'list');
-        $locations = Utils::makeRequest($endpoint['method'], $endpoint['url'], $this->token);
+        $response = Utils::makeRequest($endpoint['method'], $endpoint['url'], $this->token);
 
-        if (!isset($locations['locations'])) {
-            throw new PlatformError('Failed to get list of locations', 'GET_LOCATIONS_FAILED');
+        if ($response['code'] !== HttpResponse::OK->value) {
+            if (php_sapi_name() === 'cli') {
+                throw new PlatformError($response['body']['error'], HttpResponse::tryFrom($response['code'])->statusMessage());
+            } else {
+                $this->response['list_locations'] = [
+                    'code' => $response['code'],
+                    'error' => $response['body']['error'],
+                ];
+                return $this;
+            }
         }
-        $this->response['list_locations'] = $locations['locations'];
+
+        $this->response['list_locations'] = [
+            'code' => $response['code'],
+            'data' => $response['body']['locations']
+        ];
 
         return $this;
     }
@@ -59,12 +72,24 @@ final class Locations implements Response
     public function closestRegion(): Locations
     {
         $endpoint = Utils::useAPI('locations', 'closest_region');
-        $closest = Utils::makeRequest($endpoint['method'], $endpoint['url'], $this->token);
+        $response = Utils::makeRequest($endpoint['method'], $endpoint['url'], $this->token);
 
-        if (isset($closest['error'])) {
-            throw new PlatformError('Failed to get closest region', 'GET_CLOSEST_REGION_FAILED');
+        if ($response['code'] !== HttpResponse::OK->value) {
+            if (php_sapi_name() === 'cli') {
+                throw new PlatformError($response['body']['error'], HttpResponse::tryFrom($response['code'])->statusMessage());
+            } else {
+                $this->response['closest_region'] = [
+                    'code' => $response['code'],
+                    'error' => $response['body']['error'],
+                ];
+                return $this;
+            }
         }
-        $this->response['closest_region'] = $closest;
+
+        $this->response['closest_region'] = [
+            'code' => $response['code'],
+            'data' => $response['body']
+        ];
 
         return $this;
     }

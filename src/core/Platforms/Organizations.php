@@ -53,6 +53,7 @@ final class Organizations implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -84,8 +85,9 @@ final class Organizations implements Response
             } else {
                 $this->response['update_organization'] = [
                     'code' => $response['code'],
-                    'body' => $response['body']['error']
+                    'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -116,8 +118,9 @@ final class Organizations implements Response
             } else {
                 $this->response['plans_organization'] = [
                     'code' => $response['code'],
-                    'body' => $response['body']['error']
+                    'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -148,8 +151,9 @@ final class Organizations implements Response
             } else {
                 $this->response['subscription_organization'] = [
                     'code' => $response['code'],
-                    'body' => $response['body']['error']
+                    'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -182,8 +186,9 @@ final class Organizations implements Response
             } else {
                 $this->response['invoices_organization'] = [
                     'code' => $response['code'],
-                    'body' => $response['body']['error']
+                    'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -214,8 +219,9 @@ final class Organizations implements Response
             } else {
                 $this->response['current_usage_organization'] = [
                     'code' => $response['code'],
-                    'body' => $response['body']['error']
+                    'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 

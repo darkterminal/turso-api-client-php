@@ -60,6 +60,7 @@ final class Invites implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error'],
                 ];
+                return $this;
             }
         }
 
@@ -105,6 +106,7 @@ final class Invites implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error'],
                 ];
+                return $this;
             }
         }
 
@@ -138,6 +140,7 @@ final class Invites implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error'],
                 ];
+                return $this;
             }
         }
 

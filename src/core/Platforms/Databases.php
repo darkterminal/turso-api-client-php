@@ -67,6 +67,7 @@ final class Databases implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -157,6 +158,7 @@ final class Databases implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -419,6 +421,7 @@ final class Databases implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
         $this->response['retrieve_database'] = [
@@ -451,6 +454,7 @@ final class Databases implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -502,6 +506,7 @@ final class Databases implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -534,6 +539,7 @@ final class Databases implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -567,6 +573,7 @@ final class Databases implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -600,6 +607,7 @@ final class Databases implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -633,6 +641,7 @@ final class Databases implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -668,6 +677,7 @@ final class Databases implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -724,6 +734,7 @@ final class Databases implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -757,6 +768,7 @@ final class Databases implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -789,6 +801,7 @@ final class Databases implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 

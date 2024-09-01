@@ -52,6 +52,7 @@ final class APITokens implements Response
                     'code' => HttpResponse::NOT_FOUND,
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
         
@@ -83,6 +84,7 @@ final class APITokens implements Response
                     'code' => HttpResponse::NOT_FOUND,
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -112,6 +114,7 @@ final class APITokens implements Response
                     'code' => HttpResponse::NOT_FOUND,
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -143,6 +146,7 @@ final class APITokens implements Response
                     'code' => HttpResponse::NOT_FOUND,
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 

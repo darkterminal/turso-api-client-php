@@ -64,6 +64,7 @@ final class Groups implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
         $this->response['list_groups'] = [
@@ -113,6 +114,7 @@ final class Groups implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -146,6 +148,7 @@ final class Groups implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
         $this->response['single_group'] = [
@@ -178,6 +181,7 @@ final class Groups implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -213,6 +217,7 @@ final class Groups implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -248,6 +253,7 @@ final class Groups implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -282,6 +288,7 @@ final class Groups implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -319,6 +326,7 @@ final class Groups implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -356,6 +364,7 @@ final class Groups implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -412,6 +421,7 @@ final class Groups implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
@@ -445,6 +455,7 @@ final class Groups implements Response
                     'code' => $response['code'],
                     'error' => $response['body']['error']
                 ];
+                return $this;
             }
         }
 
