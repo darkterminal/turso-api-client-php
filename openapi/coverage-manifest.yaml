@@ -44,8 +44,8 @@ by_resource:
     deprecated: 0
   groups:
     total: 13
-    planned: 13
-    implemented: 0
+    planned: 0
+    implemented: 13
     blocked: 0
     unsupported: 0
     deprecated: 0
@@ -224,91 +224,91 @@ operations:
   resource: groups
   method_name: delete
   scope: groups
-  status: planned
+  status: implemented
 - method: DELETE
   path: /v1/organizations/{organizationSlug}/groups/{groupName}/locations/{location}
   operationId: removeLocationFromGroup
   resource: groups
   method_name: removeLocation
   scope: groups
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/organizations/{organizationSlug}/groups
   operationId: listGroups
   resource: groups
   method_name: list
   scope: groups
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/organizations/{organizationSlug}/groups/{groupName}
   operationId: getGroup
   resource: groups
   method_name: get
   scope: groups
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/organizations/{organizationSlug}/groups/{groupName}/configuration
   operationId: getGroupConfiguration
   resource: groups
   method_name: getConfiguration
   scope: groups
-  status: planned
+  status: implemented
 - method: PATCH
   path: /v1/organizations/{organizationSlug}/groups/{groupName}/configuration
   operationId: updateGroupConfiguration
   resource: groups
   method_name: updateConfiguration
   scope: groups
-  status: planned
+  status: implemented
 - method: POST
   path: /v1/organizations/{organizationSlug}/groups
   operationId: createGroup
   resource: groups
   method_name: create
   scope: groups
-  status: planned
+  status: implemented
 - method: POST
   path: /v1/organizations/{organizationSlug}/groups/{groupName}/auth/rotate
   operationId: invalidateGroupTokens
   resource: groups
   method_name: invalidateTokens
   scope: groups
-  status: planned
+  status: implemented
 - method: POST
   path: /v1/organizations/{organizationSlug}/groups/{groupName}/auth/tokens
   operationId: createGroupToken
   resource: groups
   method_name: createToken
   scope: groups
-  status: planned
+  status: implemented
 - method: POST
   path: /v1/organizations/{organizationSlug}/groups/{groupName}/locations/{location}
   operationId: addLocationToGroup
   resource: groups
   method_name: addLocation
   scope: groups
-  status: planned
+  status: implemented
 - method: POST
   path: /v1/organizations/{organizationSlug}/groups/{groupName}/transfer
   operationId: transferGroup
   resource: groups
   method_name: transfer
   scope: groups
-  status: planned
+  status: implemented
 - method: POST
   path: /v1/organizations/{organizationSlug}/groups/{groupName}/unarchive
   operationId: unarchiveGroup
   resource: groups
   method_name: unarchive
   scope: groups
-  status: planned
+  status: implemented
 - method: POST
   path: /v1/organizations/{organizationSlug}/groups/{groupName}/update
   operationId: updateGroupDatabases
   resource: groups
   method_name: update
   scope: groups
-  status: planned
+  status: implemented
 - method: DELETE
   path: /v2/organizations/{organizationSlug}/invites/{email}
   operationId: deleteOrganizationInviteByEmailV2

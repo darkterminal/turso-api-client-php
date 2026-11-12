@@ -13,6 +13,7 @@ use Darkterminal\TursoPlatformAPI\Exceptions\ServerException;
 use Darkterminal\TursoPlatformAPI\Exceptions\TransportException;
 use Darkterminal\TursoPlatformAPI\Exceptions\UnexpectedResponseException;
 use Darkterminal\TursoPlatformAPI\Resources\Databases;
+use Darkterminal\TursoPlatformAPI\Resources\Groups;
 use Darkterminal\TursoPlatformAPI\Resources\Users;
 use Darkterminal\TursoPlatformAPI\Transport\CurlTransport;
 use Nyholm\Psr7\Request;
@@ -69,6 +70,11 @@ final class Client
     public function databases(): Databases
     {
         return new Databases($this);
+    }
+
+    public function groups(): Groups
+    {
+        return new Groups($this);
     }
 
     public function user(): Users
