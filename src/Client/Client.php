@@ -54,7 +54,7 @@ final class Client
 
     public static function version(): string
     {
-        return '2.0.0-dev';
+        return '2.1.0';
     }
 
     public function configuration(): Configuration

@@ -2,16 +2,24 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [2.1.0] — Unreleased
+## [2.1.0] — Released 2026-11-12
 
 ### Added
 
-- `Integrations\DatabaseUploader` — standalone streaming uploader for a SQLite dump into a database created with `seed.type = 'database_upload'` (verified against Turso Cloud 2026-11-12).
-- `Integrations\RegionResolver` — standalone client for `GET https://region.turso.io/` (verified live 2026-11-12).
+- `Integrations\DatabaseUploader` — standalone streaming uploader for a SQLite dump into a database created with `seed.type = 'database_upload'`. Pre-flight checks the dump (`journal_mode=wal`, `page_size=4096`, `auto_vacuum=0`, UTF-8) before transferring with streamed `CURLOPT_UPLOAD`/`INFILE`; supports optional `x-turso-encryption-key`/`x-turso-encryption-cipher` headers. Verified end-to-end against Turso Cloud 2026-11-12.
+- `Integrations\RegionResolver` — standalone client for `https://region.turso.io/` (`closest()`; POST with GET fallback, no auth). Verified live 2026-11-12.
+- `docker/upload-proof/` live harness: builds a clean PHP app (8.3/8.4/8.5) path-requiring this checkout, creates a scratch database, uploads an SQLite dump, reads the smoke table back over Hrana, and deletes the scratch database. `UPLOAD-PROOF-MATRIX: all green` on all three PHP versions.
+- PHPStan (`level 5`) with `phpstan/phpstan-phpunit`; `phpstan.neon` ships in-repo.
+- CI: `.github/workflows/tests.yml` — matrix PHP 8.3/8.4/8.5 running pytest-equivalent `pest`, PHPStan, and `composer audit || true`.
+- Composer scripts: `test`, `analyse`.
+- Hermetic tests: `tests/IntegrationsTest.php` uses unique `sys_get_temp_dir()` paths (works on CI runners); SQLite handles are closed before file-size assertions and WAL/SHM/journal sidecars are cleaned up.
+
+### Fixed
+
+- `Databases::delete()` contract mismatch: the live API returns `{"database": "<string-name>"}` (a scalar), not an object. The method now returns `string|array` and returns the scalar when present (previously threw a `TypeError`). Test uses the contract-correct `{"database": "db1"}` shape.
+- README: dead links fixed, marketing language toned down.
 
 ## [2.0.0] — Released 2026-11-12
-
-The 2.1.0 section above is unreleased; when released, promote to `Released YYYY-MM-DD`.
 
 Complete rewrite. The v1 public API is removed entirely.
 
