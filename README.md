@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img alt="Turso Platform API" src="https://i.imgur.com/URmAyKX.png" width="1000">
+  <img alt="Turso Platform SDK for PHP" src="art/TursoPHPSDKPlatformBanner.png" width="1000">
 </p>
 
 <p align="center">
