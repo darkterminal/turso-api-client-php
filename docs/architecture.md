@@ -37,7 +37,10 @@ Darkterminal\TursoPlatformAPI
 │   ├── OrganizationApiTokens.php   # 2 operations (org-scoped)
 │   ├── AuditLogs.php               # 1 operation
 │   └── Recovery.php                # 4 operations (v3, requires organizationId)
-└── Transport
+├── Integrations                    # standalone integrations (live-verified against Turso Cloud 2026-11-12)
+│   ├── DatabaseUploader.php        # streaming SQLite dump upload (pre-flight PRAGMAs, /v1/upload, optional encryption headers)
+│   └── RegionResolver.php          # closest region via https://region.turso.io/ (POST, GET fallback, no auth)
+├── Transport
     └── CurlTransport.php           # PSR-18 default on ext-curl (no follow redirects)
 ```
 
@@ -61,3 +64,13 @@ Client::request(method, path, query, body)
 
 Contract pinned at `openapi/snapshots/openapi-3.0.1-v0.1.0-328d56b8a9ea.json` (SHA-256 in `openapi/coverage-manifest.yaml`).
 Every operationId is assigned to exactly one resource; see `docs/api-map.md` for the full list.
+
+## Live proof harnesses
+
+- `docker/upload-proof/` — builds a clean PHP app (8.3/8.4/8.5) that path-requires this checkout, creates a scratch database (`seed.type='database_upload'`), uploads a dump, reads the smoke row back over Hrana, and deletes the scratch database. Matrix green on PHP 8.3/8.4/8.5 (2026-11-12). Requires `TURSO_PLATFORM_API_TOKEN` on the host; **not** run in GitHub Actions.
+
+## Quality gates
+
+- `pest` — 78 tests / 167 assertions (green on PHP 8.3/8.4/8.5 in CI).
+- `phpstan` — level 6 (`phpstan.neon`; `treatPhpDocTypesAsCertain: false` intentional).
+- CI (`.github/workflows/tests.yml`) — matrix PHP 8.3/8.4/8.5: install, pest, PHPStan, composer audit.

@@ -116,3 +116,17 @@ Requires `withOrganizationId(string $organizationId)` on the builder.
 | Operation | Method/Path | Method |
 |---|---|---|
 | listOrganizationAuditLogs | GET /v1/organizations/{organizationSlug}/audit-logs?page=&page_size= | `auditLogs()->list(int $page = 1, int $pageSize = 25)` |
+File not found: 
+
+
+## Contract quirks observed in the snapshot and verified live
+
+| Operation | Quirk | Handling |
+|---|---|---|
+| deleteDatabase (DELETE …/databases/{databaseName}) | response envelope `{"database": "<string-name>"}` — `database` is a scalar string, not an object | `delete()` returns `string` when present, otherwise the verbatim array (typed `string|array` since v2.1.0) |
+| Token rotation / config PATCH | empty 2xx body | decoded as `[]` by the client (not an error) |
+| v3 Recovery operations | `/v3/organizations/{organizationId}/…` — organizationId is a **UUID**, not the slug | requires `withOrganizationId('…')`; otherwise `ConfigurationException` |
+| createDatabaseToken / createGroupToken | `expiration`/`authorization` travel as query parameters; `attachDatabases` travel as JSON body `permissions.read_attach.databases` | returned as raw JWT `string` |
+| Region resolution (not an OpenAPI operation) | no auth required | see `Integrations\RegionResolver` (POST, GET fallback); standalone from the SDK pipeline |
+
+Envelope fields not listed in the snapshot are preserved end-to-end (forward compatibility). Unknown future operations are rejected by construction — they do not silently fall through to an HTTP call.

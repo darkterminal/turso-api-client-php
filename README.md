@@ -154,6 +154,7 @@ composer install
 
 - [v2 API map](docs/api-map.md)
 - [Architecture notes](docs/architecture.md)
+- [Troubleshooting](docs/troubleshooting.md)
 - [CHANGELOG](CHANGELOG.md)
 
 ## Contributors
