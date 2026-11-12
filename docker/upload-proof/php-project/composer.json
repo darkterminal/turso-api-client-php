@@ -1,0 +1,15 @@
+{
+    "name": "darkterminal/upload-proof-app",
+    "description": "Upload proof for darkterminal/turso-api-client-php — live Turso Cloud round trip",
+    "license": "MIT",
+    "require": {
+        "darkterminal/turso-api-client-php": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

@@ -122,13 +122,14 @@ it('usage forwards from/to query params', function () {
     expect($transport->requests[0]->getUri()->getQuery())->toContain('from=2026-01-01')->toContain('to=2026-02-01');
 });
 
-it('delete uses the correct path', function () {
-    $transport = new FakeTransport(new Response(200, ['Content-Type' => 'application/json'], '{"database":{"Name":"db1"}}'));
+it('delete unwraps scalar-string "database" envelope (contract-correct shape)', function () {
+    $transport = new FakeTransport(new Response(200, ['Content-Type' => 'application/json'], '{"database":"db1"}'));
     $client = Client::builder()->withToken('t')->withOrganization(ORG)->withTransport($transport)->build();
 
-    $client->databases()->delete('db1');
+    $out = $client->databases()->delete('db1');
 
-    expect($transport->requests[0]->getMethod())->toBe('DELETE')
+    expect($out)->toBe('db1')
+        ->and($transport->requests[0]->getMethod())->toBe('DELETE')
         ->and($transport->requests[0]->getUri()->getPath())->toBe('/v1/organizations/' . ORG . '/databases/db1');
 });
 

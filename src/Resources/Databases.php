@@ -105,12 +105,21 @@ final class Databases
         return $decoded['database'] ?? $decoded;
     }
 
-    /** Delete a database by name. */
-    public function delete(string $databaseName): array
+    /**
+     * Delete a database by name.
+     *
+     * Contract: the response envelope is {"database": "<name>"} — `database` is
+     * a scalar string (the deleted database's name), NOT an object. We return
+     * the scalar when it is present, or the verbatim response otherwise.
+     */
+    public function delete(string $databaseName): string|array
     {
         $decoded = $this->client->request('DELETE',
             $this->orgPath('databases/' . rawurlencode($databaseName)));
-        return $decoded['database'] ?? $decoded;
+        if (isset($decoded['database']) && is_string($decoded['database'])) {
+            return $decoded['database'];
+        }
+        return $decoded;
     }
 
     /** Get database configuration. */
