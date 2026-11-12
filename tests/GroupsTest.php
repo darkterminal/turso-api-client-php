@@ -6,7 +6,7 @@ use Darkterminal\TursoPlatformAPI\Exceptions\ValidationException;
 use Darkterminal\TursoPlatformAPI\Tests\FakeTransport;
 use Nyholm\Psr7\Response;
 
-const ORG = 'acme';
+if (!defined('ORG')) { define('ORG', 'acme'); }
 
 it('list hits /v1/organizations/{ORG}/groups and unwraps groups', function () {
     $transport = new FakeTransport(new Response(200, ['Content-Type' => 'application/json'], '{"groups":[{"name":"default"}]}'));

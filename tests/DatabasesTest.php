@@ -7,7 +7,7 @@ use Darkterminal\TursoPlatformAPI\Exceptions\ValidationException;
 use Darkterminal\TursoPlatformAPI\Tests\FakeTransport;
 use Nyholm\Psr7\Response;
 
-const ORG = 'acme';
+if (!defined('ORG')) { define('ORG', 'acme'); }
 
 function orgClient(\Psr\Http\Message\ResponseInterface $response): Client
 {

@@ -12,8 +12,12 @@ use Darkterminal\TursoPlatformAPI\Exceptions\RateLimitException;
 use Darkterminal\TursoPlatformAPI\Exceptions\ServerException;
 use Darkterminal\TursoPlatformAPI\Exceptions\TransportException;
 use Darkterminal\TursoPlatformAPI\Exceptions\UnexpectedResponseException;
+use Darkterminal\TursoPlatformAPI\Resources\AuditLogs;
 use Darkterminal\TursoPlatformAPI\Resources\Databases;
 use Darkterminal\TursoPlatformAPI\Resources\Groups;
+use Darkterminal\TursoPlatformAPI\Resources\Invites;
+use Darkterminal\TursoPlatformAPI\Resources\Members;
+use Darkterminal\TursoPlatformAPI\Resources\Organizations;
 use Darkterminal\TursoPlatformAPI\Resources\Users;
 use Darkterminal\TursoPlatformAPI\Transport\CurlTransport;
 use Nyholm\Psr7\Request;
@@ -75,6 +79,26 @@ final class Client
     public function groups(): Groups
     {
         return new Groups($this);
+    }
+
+    public function organizations(): Organizations
+    {
+        return new Organizations($this);
+    }
+
+    public function members(): Members
+    {
+        return new Members($this);
+    }
+
+    public function invites(): Invites
+    {
+        return new Invites($this);
+    }
+
+    public function auditLogs(): AuditLogs
+    {
+        return new AuditLogs($this);
     }
 
     public function user(): Users
