@@ -20,18 +20,11 @@
   <a href="https://github.com/darkterminal/turso-api-client-php/tags"><img src="https://img.shields.io/github/v/tag/darkterminal/turso-api-client-php?label=version&color=F05340" alt="Version Tag" /></a>
 </p>
 
-<p align="center">
-  Typed, resource-oriented PHP SDK for the <a href="https://turso.tech">Turso Platform API</a> — the same platform that powers <a href="https://libsql.com">libSQL</a>, Turso Cloud, and self-hosted sqld remotely.
-</p>
-
-<p align="center">
-  PHP applications can manage Turso organizations, databases, groups, members, invites, tokens, audit logs,
-  and recovery operations from plain PHP or any framework. The 53/53 operations from the pinned OpenAPI snapshot are implemented and covered by tests.
-</p>
-
 # Turso Platform PHP SDK
 
-Typed, resource-oriented PHP SDK for the **Turso Platform API** (`https://api.turso.tech`). Framework-independent core, one composer package — no Laravel lock-in. Laravel users get a separate adapter package (planned as a follow-up).
+PHP SDK for the **Turso Platform API**. Typed, resource-oriented client built against the pinned OpenAPI snapshot — the same platform that powers [libSQL](https://turso.tech/libsql), [Turso Cloud](https://turso.tech), and self-hosted sqld over HTTP. Works in plain PHP as well as any framework; there is no framework dependency.
+
+Coverage is pinned against the OpenAPI snapshot pinned in this repository (see `openapi/coverage-manifest.yaml`). All 53/53 operations are implemented and covered by automated tests.
 
 ## Requirements
 
@@ -145,7 +138,7 @@ composer install
 
 ## Contributors
 
-![Contributors](https://contrib.nn.ci/api?no_bot=true&repo=darkterminal/turso-api-client-php)
+See the [contributor graph](https://github.com/darkterminal/turso-api-client-php/graphs/contributors) on GitHub.
 
 ## Contributing & Security
 
