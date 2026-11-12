@@ -9,16 +9,29 @@
 </p>
 
 <p align="center">
-  <img alt="Turso Platform API" src="https://github.com/darkterminal.png?size=128" width="96">
+  <img alt="Turso Platform API" src="https://i.imgur.com/URmAyKX.png" width="1000">
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/darkterminal/turso-api-client-php?color=F05340" alt="MIT License" /></a>
+  <a href="https://tur.so/discord-php"><img src="https://img.shields.io/discord/933071162680958986?color=F05340" alt="Discord" /></a>
+  <a href="#contributors"><img src="https://img.shields.io/github/contributors/darkterminal/turso-api-client-php?color=F05340" alt="Contributors" /></a>
+  <a href="https://packagist.org/packages/darkterminal/turso-api-client-php"><img src="https://img.shields.io/packagist/dt/darkterminal/turso-api-client-php?color=F05340" alt="Total downloads" /></a>
+  <a href="https://github.com/darkterminal/turso-api-client-php/tags"><img src="https://img.shields.io/github/v/tag/darkterminal/turso-api-client-php?label=version&color=F05340" alt="Version Tag" /></a>
+</p>
+
+<p align="center">
+  Typed, resource-oriented PHP SDK for the <a href="https://turso.tech">Turso Platform API</a> — the same platform that powers <a href="https://libsql.com">libSQL</a>, Turso Cloud, and self-hosted sqld remotely.
+</p>
+
+<p align="center">
+  PHP applications can manage Turso organizations, databases, groups, members, invites, tokens, audit logs,
+  and recovery operations from plain PHP or any framework. The 53/53 operations from the pinned OpenAPI snapshot are implemented and covered by tests.
 </p>
 
 # Turso Platform PHP SDK
 
-Typed, resource-oriented PHP SDK for the **Turso Platform API** (`https://api.turso.tech`).
-
-Framework-independent core, one composer package, no Laravel lock-in — Laravel users get a separate adapter package (planned as a follow-up).
-
-**Status**: spec-conformant work in progress. All 53 operations from the pinned OpenAPI snapshot are implemented and tested, but this API is still in `2.0.0-dev` until the v2 release is tagged.
+Typed, resource-oriented PHP SDK for the **Turso Platform API** (`https://api.turso.tech`). Framework-independent core, one composer package — no Laravel lock-in. Laravel users get a separate adapter package (planned as a follow-up).
 
 ## Requirements
 
@@ -129,6 +142,10 @@ composer install
 - [v2 API map](docs/api-map.md)
 - [Architecture notes](docs/architecture.md)
 - [CHANGELOG](CHANGELOG.md)
+
+## Contributors
+
+![Contributors](https://contrib.nn.ci/api?no_bot=true&repo=darkterminal/turso-api-client-php)
 
 ## Contributing & Security
 
