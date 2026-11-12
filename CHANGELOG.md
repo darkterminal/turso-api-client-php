@@ -2,7 +2,16 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [2.0.0] — Unreleased
+## [2.1.0] — Unreleased
+
+### Added
+
+- `Integrations\DatabaseUploader` — standalone streaming uploader for a SQLite dump into a database created with `seed.type = 'database_upload'` (verified against Turso Cloud 2026-11-12).
+- `Integrations\RegionResolver` — standalone client for `GET https://region.turso.io/` (verified live 2026-11-12).
+
+## [2.0.0] — Released 2026-11-12
+
+The 2.1.0 section above is unreleased; when released, promote to `Released YYYY-MM-DD`.
 
 Complete rewrite. The v1 public API is removed entirely.
 

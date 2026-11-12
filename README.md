@@ -87,6 +87,26 @@ Every resource maps to the pinned OpenAPI `operationId`.
 
 See [docs/api-map.md](docs/api-map.md) for the full operation inventory and contract coverage map.
 
+## Integrations
+
+Two standalone integrations, **not** wired to the Platform API by default (ADR-005 / ADR-009):
+
+| Integration | Purpose |
+|---|---|
+| `Integrations\DatabaseUploader` | Upload a SQLite dump to a database created with `seed.type='database_upload'`. Pre-flight validates WAL mode, `page_size=4096`, `auto_vacuum=0`, UTF-8 encoding. Requires a *database token* (never the Platform token). |
+| `Integrations\RegionResolver` | Read-only `GET https://region.turso.io/` — returns the AWS region serving the client and the airport code. No auth. |
+
+```php
+use Darkterminal\TursoPlatformAPI\Integrations\DatabaseUploader;
+use Darkterminal\TursoPlatformAPI\Integrations\RegionResolver;
+
+$uploader = new DatabaseUploader('dmpload-….turso.io', $databaseToken);
+$uploader->uploadDump('/path/to/dump.db');
+
+$region = (new RegionResolver())->closest();   // ['server' => 'aws-us-west-2', 'client' => 'lax']
+```
+
+
 ## Error handling
 
 | HTTP status | Exception |
@@ -109,14 +129,14 @@ composer install
 ./vendor/bin/pest
 ```
 
-63 tests / 143 assertions cover all resources (via an in-memory PSR-18 double).
+78 tests / 166 assertions cover all resources (via an in-memory PSR-18 double).
 
 ## What is **not** supported yet
 
-- **Upload/dump** (`database_upload` seed in OpenAPI is intentionally not wired — the upload contract is a separate integration and will be gated/verified before shipping).
-- **Region resolver** (`https://region.turso.io`) — separate contract, not implemented.
 - **Laravel adapter** — planned as a follow-up package; this package is Laravel-free.
 - **Offline/journaled-write modes** — out of scope for an HTTP Platform API client.
+- **Region resolver push notifications** — resolver is stateless; there is no webhook/edge-push API.
+
 
 ## Versioning
 
