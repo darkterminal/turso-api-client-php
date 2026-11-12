@@ -55,7 +55,7 @@ final class DatabaseUploader
         ?ClientInterface $transport = null,
         bool $verifyTls = true,
     ) {
-        if (is_string($hostname) && preg_match('{^http://}i', trim($hostname))) {
+        if (preg_match('{^http://}i', trim($hostname))) {
             throw new ValidationException('Upload hostname must use https, not http, with only https URLs allowed.');
         }
         // accept both 'host' and 'https://host' — normalize to bare host

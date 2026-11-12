@@ -42,7 +42,9 @@
         "nyholm/psr7": "^1.8"
     },
     "require-dev": {
-        "pestphp/pest": "^3.0"
+        "pestphp/pest": "^3.0",
+        "phpstan/phpstan": "^2.3",
+        "phpstan/phpstan-phpunit": "^2.1"
     },
     "config": {
         "allow-plugins": {
@@ -55,6 +57,9 @@
     "scripts": {
         "test": [
             "./vendor/bin/pest"
+        ],
+        "analyse": [
+            "./vendor/bin/phpstan analyse --memory-limit=1G"
         ]
     }
 }

@@ -1,0 +1,43 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: php ${{ matrix.php }}
+    runs-on: ubuntu-24.04
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { php: '8.3' }
+          - { php: '8.4' }
+          - { php: '8.5' }
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup PHP ${{ matrix.php }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Tests
+        run: vendor/bin/pest
+
+      - name: Static analysis (PHPStan)
+        run: vendor/bin/phpstan analyse --memory-limit=1G
+
+      - name: Composer audit
+        run: composer audit || true
