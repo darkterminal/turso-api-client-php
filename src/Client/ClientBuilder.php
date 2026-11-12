@@ -14,11 +14,13 @@ use Psr\Http\Client\ClientInterface;
  * Example:
  *     $client = (new ClientBuilder())
  *         ->withToken($token)
+ *         ->withOrganization('acme')
  *         ->build();
  */
 final class ClientBuilder
 {
     private ?string $token = null;
+    private ?string $organization = null;
     private string $baseUrl = Configuration::DEFAULT_BASE_URL;
     private int $timeout = Configuration::DEFAULT_TIMEOUT;
     private ?ClientInterface $transport = null;
@@ -27,6 +29,13 @@ final class ClientBuilder
     {
         $clone = clone $this;
         $clone->token = $token;
+        return $clone;
+    }
+
+    public function withOrganization(string $organization): self
+    {
+        $clone = clone $this;
+        $clone->organization = $organization;
         return $clone;
     }
 
@@ -63,6 +72,7 @@ final class ClientBuilder
 
         return new Client(new Configuration(
             token: $this->token,
+            organization: $this->organization,
             baseUrl: $this->baseUrl,
             timeout: $this->timeout,
             transport: $this->transport ?? new CurlTransport($this->timeout),

@@ -19,61 +19,85 @@ by_resource:
     planned: 3
     implemented: 0
     blocked: 0
+    unsupported: 0
+    deprecated: 0
   auditLogs:
     total: 1
     planned: 1
     implemented: 0
     blocked: 0
+    unsupported: 0
+    deprecated: 0
   auth:
     total: 1
     planned: 1
     implemented: 0
     blocked: 0
+    unsupported: 0
+    deprecated: 0
   databases:
     total: 12
-    planned: 12
-    implemented: 0
+    planned: 0
+    implemented: 12
     blocked: 0
+    unsupported: 0
+    deprecated: 0
   groups:
     total: 13
     planned: 13
     implemented: 0
     blocked: 0
+    unsupported: 0
+    deprecated: 0
   invites:
     total: 3
     planned: 3
     implemented: 0
     blocked: 0
+    unsupported: 0
+    deprecated: 0
   locations:
     total: 1
     planned: 1
     implemented: 0
     blocked: 0
+    unsupported: 0
+    deprecated: 0
   members:
     total: 5
     planned: 5
     implemented: 0
     blocked: 0
+    unsupported: 0
+    deprecated: 0
   organizationApiTokens:
     total: 2
     planned: 2
     implemented: 0
     blocked: 0
+    unsupported: 0
+    deprecated: 0
   organizations:
     total: 7
     planned: 7
     implemented: 0
     blocked: 0
+    unsupported: 0
+    deprecated: 0
   recovery:
     total: 4
     planned: 4
     implemented: 0
     blocked: 0
+    unsupported: 0
+    deprecated: 0
   users:
     total: 1
-    planned: 1
-    implemented: 0
+    planned: 0
+    implemented: 1
     blocked: 0
+    unsupported: 0
+    deprecated: 0
 operations:
 - method: DELETE
   path: /v1/auth/api-tokens/{tokenName}
@@ -116,84 +140,84 @@ operations:
   resource: databases
   method_name: delete
   scope: databases
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/organizations/{organizationSlug}/databases
   operationId: listDatabases
   resource: databases
   method_name: list
   scope: databases
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/organizations/{organizationSlug}/databases/{databaseName}
   operationId: getDatabase
   resource: databases
   method_name: get
   scope: databases
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/organizations/{organizationSlug}/databases/{databaseName}/configuration
   operationId: getDatabaseConfiguration
   resource: databases
   method_name: getConfiguration
   scope: databases
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/organizations/{organizationSlug}/databases/{databaseName}/instances
   operationId: listDatabaseInstances
   resource: databases
   method_name: listInstances
   scope: databases
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/organizations/{organizationSlug}/databases/{databaseName}/instances/{instanceName}
   operationId: getDatabaseInstance
   resource: databases
   method_name: getInstance
   scope: databases
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/organizations/{organizationSlug}/databases/{databaseName}/stats
   operationId: getDatabaseStats
   resource: databases
   method_name: getStats
   scope: databases
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/organizations/{organizationSlug}/databases/{databaseName}/usage
   operationId: getDatabaseUsage
   resource: databases
   method_name: getUsage
   scope: databases
-  status: planned
+  status: implemented
 - method: PATCH
   path: /v1/organizations/{organizationSlug}/databases/{databaseName}/configuration
   operationId: updateDatabaseConfiguration
   resource: databases
   method_name: updateConfiguration
   scope: databases
-  status: planned
+  status: implemented
 - method: POST
   path: /v1/organizations/{organizationSlug}/databases
   operationId: createDatabase
   resource: databases
   method_name: create
   scope: databases
-  status: planned
+  status: implemented
 - method: POST
   path: /v1/organizations/{organizationSlug}/databases/{databaseName}/auth/rotate
   operationId: invalidateDatabaseTokens
   resource: databases
   method_name: invalidateTokens
   scope: databases
-  status: planned
+  status: implemented
 - method: POST
   path: /v1/organizations/{organizationSlug}/databases/{databaseName}/auth/tokens
   operationId: createDatabaseToken
   resource: databases
   method_name: createToken
   scope: databases
-  status: planned
+  status: implemented
 - method: DELETE
   path: /v1/organizations/{organizationSlug}/groups/{groupName}
   operationId: deleteGroup
@@ -445,4 +469,4 @@ operations:
   resource: users
   method_name: get
   scope: users
-  status: planned
+  status: implemented

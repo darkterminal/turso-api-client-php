@@ -13,6 +13,9 @@ use Psr\Http\Client\ClientInterface;
  * The default base URL points at the Turso Platform API (https://api.turso.tech).
  * The default transport is the SDK's CurlTransport; inject any PSR-18 client
  * to control redirects, timeouts and credential handling.
+ *
+ * `organization` is the default organization for organization-scoped resources
+ * (e.g. databases, groups). Leave null to scope per call via ConfigurationException.
  */
 final class Configuration
 {
@@ -21,6 +24,7 @@ final class Configuration
 
     public function __construct(
         public readonly string $token,
+        public readonly ?string $organization = null,
         public readonly string $baseUrl = self::DEFAULT_BASE_URL,
         public readonly int $timeout = self::DEFAULT_TIMEOUT,
         public readonly ?ClientInterface $transport = null,
@@ -29,11 +33,15 @@ final class Configuration
         if ($token === '') {
             throw new ConfigurationException('Platform API token must not be empty.');
         }
+        if ($this->organization !== null && trim($this->organization) === '') {
+            throw new ConfigurationException('Organization must not be empty when provided.');
+        }
         if ($timeout < 1) {
             throw new ConfigurationException('Timeout must be at least 1 second.');
         }
-        $host = strtolower(parse_url($baseUrl, PHP_URL_HOST) ?: '');
-        if ($host === '' || !in_array(parse_url($baseUrl, PHP_URL_SCHEME), ['http', 'https'], true)) {
+        $scheme = parse_url($baseUrl, PHP_URL_SCHEME);
+        $host = strtolower((string) (parse_url($baseUrl, PHP_URL_HOST) ?? ''));
+        if ($host === '' || !in_array($scheme, ['http', 'https'], true)) {
             throw new ConfigurationException("Base URL must be an http(s) URL, got: $baseUrl");
         }
     }
