@@ -21,6 +21,7 @@ final class ClientBuilder
 {
     private ?string $token = null;
     private ?string $organization = null;
+    private ?string $organizationId = null;
     private string $baseUrl = Configuration::DEFAULT_BASE_URL;
     private int $timeout = Configuration::DEFAULT_TIMEOUT;
     private ?ClientInterface $transport = null;
@@ -36,6 +37,17 @@ final class ClientBuilder
     {
         $clone = clone $this;
         $clone->organization = $organization;
+        return $clone;
+    }
+
+    /**
+     * Set the organization ID (UUID) for v3 recovery operations
+     * (listDeletedDatabases, restoreDatabase, listDeletedGroups, restoreGroup).
+     */
+    public function withOrganizationId(string $organizationId): self
+    {
+        $clone = clone $this;
+        $clone->organizationId = $organizationId;
         return $clone;
     }
 
@@ -73,6 +85,7 @@ final class ClientBuilder
         return new Client(new Configuration(
             token: $this->token,
             organization: $this->organization,
+            organizationId: $this->organizationId,
             baseUrl: $this->baseUrl,
             timeout: $this->timeout,
             transport: $this->transport ?? new CurlTransport($this->timeout),

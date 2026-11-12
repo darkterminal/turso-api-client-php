@@ -12,12 +12,17 @@ use Darkterminal\TursoPlatformAPI\Exceptions\RateLimitException;
 use Darkterminal\TursoPlatformAPI\Exceptions\ServerException;
 use Darkterminal\TursoPlatformAPI\Exceptions\TransportException;
 use Darkterminal\TursoPlatformAPI\Exceptions\UnexpectedResponseException;
+use Darkterminal\TursoPlatformAPI\Resources\ApiTokens;
 use Darkterminal\TursoPlatformAPI\Resources\AuditLogs;
+use Darkterminal\TursoPlatformAPI\Resources\Auth;
 use Darkterminal\TursoPlatformAPI\Resources\Databases;
 use Darkterminal\TursoPlatformAPI\Resources\Groups;
 use Darkterminal\TursoPlatformAPI\Resources\Invites;
+use Darkterminal\TursoPlatformAPI\Resources\Locations;
 use Darkterminal\TursoPlatformAPI\Resources\Members;
+use Darkterminal\TursoPlatformAPI\Resources\OrganizationApiTokens;
 use Darkterminal\TursoPlatformAPI\Resources\Organizations;
+use Darkterminal\TursoPlatformAPI\Resources\Recovery;
 use Darkterminal\TursoPlatformAPI\Resources\Users;
 use Darkterminal\TursoPlatformAPI\Transport\CurlTransport;
 use Nyholm\Psr7\Request;
@@ -71,6 +76,21 @@ final class Client
         return $org;
     }
 
+    /**
+     * Organization ID (UUID) for v3 recovery operations (listDeletedDatabases,
+     * restoreDatabase, listDeletedGroups, restoreGroup).
+     *
+     * @throws ConfigurationException When no organization ID was configured.
+     */
+    public function organizationId(): string
+    {
+        $id = $this->configuration->organizationId;
+        if ($id === null || $id === '') {
+            throw new ConfigurationException('This operation requires the organization ID (UUID). Configure it with withOrganizationId() or Configuration::__construct(organizationId: ...).');
+        }
+        return $id;
+    }
+
     public function databases(): Databases
     {
         return new Databases($this);
@@ -99,6 +119,31 @@ final class Client
     public function auditLogs(): AuditLogs
     {
         return new AuditLogs($this);
+    }
+
+    public function apiTokens(): ApiTokens
+    {
+        return new ApiTokens($this);
+    }
+
+    public function organizationApiTokens(): OrganizationApiTokens
+    {
+        return new OrganizationApiTokens($this);
+    }
+
+    public function auth(): Auth
+    {
+        return new Auth($this);
+    }
+
+    public function locations(): Locations
+    {
+        return new Locations($this);
+    }
+
+    public function recovery(): Recovery
+    {
+        return new Recovery($this);
     }
 
     public function user(): Users

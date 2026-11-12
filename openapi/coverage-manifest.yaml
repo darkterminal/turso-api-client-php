@@ -16,8 +16,8 @@ total_operations: 53
 by_resource:
   apiTokens:
     total: 3
-    planned: 3
-    implemented: 0
+    planned: 0
+    implemented: 3
     blocked: 0
     unsupported: 0
     deprecated: 0
@@ -30,8 +30,8 @@ by_resource:
     deprecated: 0
   auth:
     total: 1
-    planned: 1
-    implemented: 0
+    planned: 0
+    implemented: 1
     blocked: 0
     unsupported: 0
     deprecated: 0
@@ -58,8 +58,8 @@ by_resource:
     deprecated: 0
   locations:
     total: 1
-    planned: 1
-    implemented: 0
+    planned: 0
+    implemented: 1
     blocked: 0
     unsupported: 0
     deprecated: 0
@@ -72,8 +72,8 @@ by_resource:
     deprecated: 0
   organizationApiTokens:
     total: 2
-    planned: 2
-    implemented: 0
+    planned: 0
+    implemented: 2
     blocked: 0
     unsupported: 0
     deprecated: 0
@@ -86,8 +86,8 @@ by_resource:
     deprecated: 0
   recovery:
     total: 4
-    planned: 4
-    implemented: 0
+    planned: 0
+    implemented: 4
     blocked: 0
     unsupported: 0
     deprecated: 0
@@ -105,21 +105,21 @@ operations:
   resource: apiTokens
   method_name: revoke
   scope: apiTokens
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/auth/api-tokens
   operationId: listAPITokens
   resource: apiTokens
   method_name: list
   scope: apiTokens
-  status: planned
+  status: implemented
 - method: POST
   path: /v1/auth/api-tokens/{tokenName}
   operationId: createAPIToken
   resource: apiTokens
   method_name: create
   scope: apiTokens
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/organizations/{organizationSlug}/audit-logs
   operationId: listOrganizationAuditLogs
@@ -133,7 +133,7 @@ operations:
   resource: auth
   method_name: validate
   scope: auth
-  status: planned
+  status: implemented
 - method: DELETE
   path: /v1/organizations/{organizationSlug}/databases/{databaseName}
   operationId: deleteDatabase
@@ -336,7 +336,7 @@ operations:
   resource: locations
   method_name: list
   scope: locations
-  status: planned
+  status: implemented
 - method: DELETE
   path: /v1/organizations/{organizationSlug}/members/{username}
   operationId: removeOrganizationMember
@@ -378,14 +378,14 @@ operations:
   resource: organizationApiTokens
   method_name: revoke
   scope: organizationApiTokens
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/organizations/{organizationSlug}/api-tokens
   operationId: listOrganizationAPITokens
   resource: organizationApiTokens
   method_name: list
   scope: organizationApiTokens
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/organizations
   operationId: listOrganizations
@@ -441,28 +441,28 @@ operations:
   resource: recovery
   method_name: listDeletedDatabases
   scope: recovery
-  status: planned
+  status: implemented
 - method: GET
   path: /v3/organizations/{organizationId}/deleted-groups
   operationId: listDeletedGroups
   resource: recovery
   method_name: listDeletedGroups
   scope: recovery
-  status: planned
+  status: implemented
 - method: POST
   path: /v3/organizations/{organizationId}/databases/{databaseId}/restore
   operationId: restoreDatabase
   resource: recovery
   method_name: restoreDatabase
   scope: recovery
-  status: planned
+  status: implemented
 - method: POST
   path: /v3/organizations/{organizationId}/groups/{groupId}/restore
   operationId: restoreGroup
   resource: recovery
   method_name: restoreGroup
   scope: recovery
-  status: planned
+  status: implemented
 - method: GET
   path: /v1/user
   operationId: getCurrentUser

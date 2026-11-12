@@ -25,6 +25,7 @@ final class Configuration
     public function __construct(
         public readonly string $token,
         public readonly ?string $organization = null,
+        public readonly ?string $organizationId = null,
         public readonly string $baseUrl = self::DEFAULT_BASE_URL,
         public readonly int $timeout = self::DEFAULT_TIMEOUT,
         public readonly ?ClientInterface $transport = null,
@@ -35,6 +36,9 @@ final class Configuration
         }
         if ($this->organization !== null && trim($this->organization) === '') {
             throw new ConfigurationException('Organization must not be empty when provided.');
+        }
+        if ($this->organizationId !== null && trim($this->organizationId) === '') {
+            throw new ConfigurationException('Organization ID must not be empty when provided.');
         }
         if ($timeout < 1) {
             throw new ConfigurationException('Timeout must be at least 1 second.');
