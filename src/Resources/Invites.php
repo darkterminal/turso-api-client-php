@@ -22,6 +22,9 @@ final class Invites
         private readonly Client $client,
     ) {}
 
+    /**
+     * @return array<mixed>
+     */
     public function list(): array
     {
         $decoded = $this->client->request('GET', $this->orgPath('/v2/organizations', '/invites'));
@@ -30,6 +33,7 @@ final class Invites
 
     /**
      * Invite a user. Exactly one of `email` or `username` must be provided.
+     * @return array<mixed>
      */
     public function create(?string $email = null, ?string $username = null, MemberRole $role = MemberRole::MEMBER): array
     {
@@ -51,7 +55,10 @@ final class Invites
         return $decoded['invited'] ?? $decoded;
     }
 
-    /** Delete an invite by email. */
+    /**
+     * Delete an invite by email.
+     * @return array<mixed>
+     */
     public function delete(string $email): array
     {
         if (trim($email) === '') {

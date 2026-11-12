@@ -19,14 +19,20 @@ final class OrganizationApiTokens
         private readonly Client $client,
     ) {}
 
-    /** List API tokens for an organization. */
+    /**
+     * List API tokens for an organization.
+     * @return array<mixed>
+     */
     public function list(): array
     {
         $decoded = $this->client->request('GET', $this->orgPath('/api-tokens'));
         return $decoded['tokens'] ?? $decoded;
     }
 
-    /** Revoke (delete) an organization API token by ID. */
+    /**
+     * Revoke (delete) an organization API token by ID.
+     * @return array<mixed>
+     */
     public function revoke(string $tokenId): array
     {
         if (trim($tokenId) === '') {

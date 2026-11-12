@@ -76,7 +76,10 @@ final class CurlTransport implements ClientInterface
         return new Response($status, $responseHeaders, $responseBody);
     }
 
-    /** @param array<string, list<string>> $headers */
+    /**
+     * @param array<string, list<string>> $headers
+     * @return list<string>
+     */
     private function headersToArray(array $headers): array
     {
         $flat = [];

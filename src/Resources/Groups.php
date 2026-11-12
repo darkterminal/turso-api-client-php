@@ -31,13 +31,19 @@ final class Groups
         private readonly Client $client,
     ) {}
 
+    /**
+     * @return array<mixed>
+     */
     public function list(): array
     {
         $decoded = $this->client->request('GET', $this->orgPath());
         return $decoded['groups'] ?? $decoded;
     }
 
-    /** @param array<string>|string|null $extensions 'all', or an array of extension names from the contract enum. */
+    /**
+     * @param array<string>|string|null $extensions 'all', or an array of extension names from the contract enum.
+     * @return array<mixed>
+     */
     public function create(string $groupName, string $location, string|array|null $extensions = null): array
     {
         if (trim($groupName) === '') {
@@ -56,21 +62,30 @@ final class Groups
         return $decoded['group'] ?? $decoded;
     }
 
-    /** Get a group. */
+    /**
+     * Get a group.
+     * @return array<mixed>
+     */
     public function get(string $groupName): array
     {
         $decoded = $this->client->request('GET', $this->orgPath('/' . rawurlencode($groupName)));
         return $decoded['group'] ?? $decoded;
     }
 
-    /** Delete a group. */
+    /**
+     * Delete a group.
+     * @return array<mixed>
+     */
     public function delete(string $groupName): array
     {
         $decoded = $this->client->request('DELETE', $this->orgPath('/' . rawurlencode($groupName)));
         return $decoded['group'] ?? $decoded;
     }
 
-    /** Get group configuration (delete_protection). */
+    /**
+     * Get group configuration (delete_protection).
+     * @return array<mixed>
+     */
     public function getConfiguration(string $groupName): array
     {
         /** @var array<mixed> $decoded */
@@ -82,6 +97,7 @@ final class Groups
      * Update group configuration. Only `delete_protection` is supported by the contract.
      *
      * @param array<string, bool> $configuration
+     * @return array<mixed>
      */
     public function updateConfiguration(string $groupName, array $configuration): array
     {
@@ -102,7 +118,10 @@ final class Groups
         return $decoded;
     }
 
-    /** Transfer a group to another organization. */
+    /**
+     * Transfer a group to another organization.
+     * @return array<mixed>
+     */
     public function transfer(string $groupName, string $targetOrganization): array
     {
         if (trim($targetOrganization) === '') {
@@ -117,7 +136,10 @@ final class Groups
         return $decoded;
     }
 
-    /** Unarchive a group. */
+    /**
+     * Unarchive a group.
+     * @return array<mixed>
+     */
     public function unarchive(string $groupName): array
     {
         $decoded = $this->client->request('POST',
@@ -125,7 +147,10 @@ final class Groups
         return $decoded['group'] ?? $decoded;
     }
 
-    /** Add a location (and its replica) to a group. */
+    /**
+     * Add a location (and its replica) to a group.
+     * @return array<mixed>
+     */
     public function addLocation(string $groupName, string $location): array
     {
         $decoded = $this->client->request('POST',
@@ -133,7 +158,10 @@ final class Groups
         return $decoded['group'] ?? $decoded;
     }
 
-    /** Remove a location from a group. */
+    /**
+     * Remove a location from a group.
+     * @return array<mixed>
+     */
     public function removeLocation(string $groupName, string $location): array
     {
         $decoded = $this->client->request('DELETE',
@@ -141,7 +169,10 @@ final class Groups
         return $decoded['group'] ?? $decoded;
     }
 
-    /** Update the database version of the group in place (200 No Content). */
+    /**
+     * Update the database version of the group in place (200 No Content).
+     * @return array<mixed>
+     */
     public function update(string $groupName): array
     {
         /** @var array<mixed> $decoded */
@@ -195,7 +226,10 @@ final class Groups
         throw new \Darkterminal\TursoPlatformAPI\Exceptions\UnexpectedResponseException('Expected a jwt string in the token creation response.');
     }
 
-    /** Invalidate (rotate) all tokens for a group. */
+    /**
+     * Invalidate (rotate) all tokens for a group.
+     * @return array<mixed>
+     */
     public function invalidateTokens(string $groupName): array
     {
         /** @var array<mixed> $decoded */
@@ -212,7 +246,10 @@ final class Groups
         return $segment === '' ? $base : $base . $segment;
     }
 
-    /** @return string|array<string> */
+    /**
+     * @param string|list<string> $extensions
+     * @return string|array<string>
+     */
     private function validateExtensions(string|array $extensions): string|array
     {
         if ($extensions === 'all') {

@@ -17,7 +17,10 @@ final class Auth
         private readonly Client $client,
     ) {}
 
-    /** Validate the configured API token. */
+    /**
+     * Validate the configured API token.
+     * @return array<mixed>
+     */
     public function validate(): array
     {
         /** @var array<mixed> $decoded */

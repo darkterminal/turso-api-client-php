@@ -17,7 +17,10 @@ final class Locations
         private readonly Client $client,
     ) {}
 
-    /** List available database locations/regions. */
+    /**
+     * List available database locations/regions.
+     * @return array<mixed>
+     */
     public function list(): array
     {
         $decoded = $this->client->request('GET', '/v1/locations');

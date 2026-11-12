@@ -139,7 +139,10 @@ final class DatabaseUploader
         return $size;
     }
 
-    /** @param array{key?: string, cipher?: string}|null $encryption @return array<string,string> */
+    /**
+     * @param array{key?: string, cipher?: string}|null $encryption
+     * @return array<string, string>
+     */
     private function commonHeaders(int $size, ?array $encryption): array
     {
         $map = [
@@ -158,7 +161,12 @@ final class DatabaseUploader
         return $map;
     }
 
-    /** Render associative headers into "Name: Value" lines for the curl path. */
+    /**
+     * Render associative headers into "Name: Value" lines for the curl path.
+     *
+     * @param array<string, string> $map
+     * @return list<string>
+     */
     private function renderHeaders(array $map): array
     {
         $lines = [];

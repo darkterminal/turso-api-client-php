@@ -29,7 +29,10 @@ final class Organizations
         private readonly Client $client,
     ) {}
 
-    /** List organizations visible to the token (bare array). */
+    /**
+     * List organizations visible to the token (bare array).
+     * @return array<mixed>
+     */
     public function list(): array
     {
         /** @var array<mixed> $decoded */
@@ -37,7 +40,10 @@ final class Organizations
         return $decoded;
     }
 
-    /** Get an organization. */
+    /**
+     * Get an organization.
+     * @return array<mixed>
+     */
     public function get(): array
     {
         $decoded = $this->client->request('GET', $this->orgPath());
@@ -69,7 +75,10 @@ final class Organizations
         return $decoded['organization'] ?? $decoded;
     }
 
-    /** List plans available for the organization. */
+    /**
+     * List plans available for the organization.
+     * @return array<mixed>
+     */
     public function listPlans(): array
     {
         $decoded = $this->client->request('GET', $this->orgPath('/plans'));
@@ -80,6 +89,7 @@ final class Organizations
      * List invoices.
      *
      * @param 'all'|'upcoming'|'issued' $type Invoice type filter.
+     * @return array<mixed>
      */
     public function listInvoices(string $type = 'all'): array
     {
@@ -91,14 +101,20 @@ final class Organizations
         return $decoded['invoices'] ?? $decoded;
     }
 
-    /** Get the current subscription. */
+    /**
+     * Get the current subscription.
+     * @return array<mixed>
+     */
     public function getSubscription(): array
     {
         $decoded = $this->client->request('GET', $this->orgPath('/subscription'));
         return $decoded['subscription'] ?? $decoded;
     }
 
-    /** Get usage for the organization. */
+    /**
+     * Get usage for the organization.
+     * @return array<mixed>
+     */
     public function getUsage(): array
     {
         $decoded = $this->client->request('GET', $this->orgPath('/usage'));

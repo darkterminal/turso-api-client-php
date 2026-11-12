@@ -23,6 +23,9 @@ final class Members
         private readonly Client $client,
     ) {}
 
+    /**
+     * @return array<mixed>
+     */
     public function list(): array
     {
         $decoded = $this->client->request('GET', $this->orgPath('/members'));
@@ -31,6 +34,7 @@ final class Members
 
     /**
      * Add a member. Exactly one of `username` or `email` must be provided.
+     * @return array<mixed>
      */
     public function add(?string $username = null, ?string $email = null, MemberRole $role = MemberRole::MEMBER): array
     {
@@ -55,7 +59,10 @@ final class Members
         return $decoded;
     }
 
-    /** Get a single member. Unwraps the Member object from the envelope. */
+    /**
+     * Get a single member. Unwraps the Member object from the envelope.
+     * @return array<mixed>
+     */
     public function get(string $username): array
     {
         if (trim($username) === '') {
@@ -65,7 +72,10 @@ final class Members
         return $decoded['member'] ?? $decoded;
     }
 
-    /** Update a member's role. */
+    /**
+     * Update a member's role.
+     * @return array<mixed>
+     */
     public function updateRole(string $username, MemberRole $role): array
     {
         if (trim($username) === '') {
@@ -78,7 +88,10 @@ final class Members
         return $decoded['member'] ?? $decoded;
     }
 
-    /** Remove a member. Contract envelope: {"member": string(username)} (member is a scalar here). */
+    /**
+     * Remove a member. Contract envelope: {"member": string(username)} (member is a scalar here).
+     * @return array<mixed>
+     */
     public function remove(string $username): array
     {
         if (trim($username) === '') {

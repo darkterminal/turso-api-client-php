@@ -154,7 +154,7 @@ final class Client
     /**
      * Execute a Platform API request and return the decoded JSON payload as an array.
      *
-     * @param array<string, scalar|array> $query
+     * @param array<string, mixed> $query
      * @param array<int|string, mixed>|object|null $body
      * @return array<mixed>
      */

@@ -97,7 +97,10 @@ final class Databases
         return $decoded['database'] ?? $decoded;
     }
 
-    /** Get a database by name. */
+    /**
+     * Get a database by name.
+     * @return array<mixed>
+     */
     public function get(string $databaseName): array
     {
         $decoded = $this->client->request('GET',
@@ -111,6 +114,7 @@ final class Databases
      * Contract: the response envelope is {"database": "<name>"} — `database` is
      * a scalar string (the deleted database's name), NOT an object. We return
      * the scalar when it is present, or the verbatim response otherwise.
+     * @return string|array<mixed>
      */
     public function delete(string $databaseName): string|array
     {
@@ -122,7 +126,10 @@ final class Databases
         return $decoded;
     }
 
-    /** Get database configuration. */
+    /**
+     * Get database configuration.
+     * @return array<mixed>
+     */
     public function getConfiguration(string $databaseName): array
     {
         /** @var array<mixed> $decoded */
@@ -152,7 +159,10 @@ final class Databases
         return $decoded;
     }
 
-    /** List instances for a database. */
+    /**
+     * List instances for a database.
+     * @return array<mixed>
+     */
     public function listInstances(string $databaseName): array
     {
         $decoded = $this->client->request('GET',
@@ -160,7 +170,10 @@ final class Databases
         return $decoded['instances'] ?? $decoded;
     }
 
-    /** Get a specific instance. */
+    /**
+     * Get a specific instance.
+     * @return array<mixed>
+     */
     public function getInstance(string $databaseName, string $instanceName): array
     {
         $decoded = $this->client->request('GET',
@@ -213,7 +226,10 @@ final class Databases
         return $this->extractJwt($decoded);
     }
 
-    /** Invalidate (rotate) all tokens for a database. */
+    /**
+     * Invalidate (rotate) all tokens for a database.
+     * @return array<mixed>
+     */
     public function invalidateTokens(string $databaseName): array
     {
         /** @var array<mixed> $decoded */
@@ -236,7 +252,10 @@ final class Databases
         return $decoded['database'] ?? $decoded;
     }
 
-    /** Database top queries (by rows read/written). */
+    /**
+     * Database top queries (by rows read/written).
+     * @return array<mixed>
+     */
     public function stats(string $databaseName): array
     {
         $decoded = $this->client->request('GET',
@@ -258,7 +277,10 @@ final class Databases
         }
     }
 
-    /** @param array<string, mixed> $seed */
+    /**
+     * @param array<string, mixed> $seed
+     * @return array<mixed>
+     */
     private function validateSeed(array $seed): array
     {
         $type = $seed['type'] ?? null;
@@ -287,7 +309,10 @@ final class Databases
         return $seed;
     }
 
-    /** @param array<string, mixed> $remoteEncryption */
+    /**
+     * @param array<string, mixed> $remoteEncryption
+     * @return array<mixed>
+     */
     private function validateRemoteEncryption(array $remoteEncryption): array
     {
         $allowed = ['encryption_key', 'encryption_cipher'];

@@ -21,7 +21,10 @@ final class ApiTokens
         private readonly Client $client,
     ) {}
 
-    /** List personal API tokens. */
+    /**
+     * List personal API tokens.
+     * @return array<mixed>
+     */
     public function list(): array
     {
         $decoded = $this->client->request('GET', $this->personalPath());
@@ -73,7 +76,10 @@ final class ApiTokens
         return $decoded;
     }
 
-    /** Revoke (delete) a personal API token by name. */
+    /**
+     * Revoke (delete) a personal API token by name.
+     * @return array<mixed>
+     */
     public function revoke(string $tokenName): array
     {
         if (trim($tokenName) === '') {
@@ -87,7 +93,10 @@ final class ApiTokens
         return $decoded;
     }
 
-    /** @param list<ApiTokenScope|string>|null $scopes @return list<string>|null */
+    /**
+     * @param list<ApiTokenScope|string>|null $scopes
+     * @return list<string>|null
+     */
     private function validateScopes(?array $scopes): ?array
     {
         if ($scopes === null) {

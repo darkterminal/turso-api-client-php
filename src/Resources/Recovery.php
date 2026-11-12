@@ -84,6 +84,7 @@ final class Recovery
 
     /**
      * List deleted groups.
+     * @return array<mixed>
      */
     public function listDeletedGroups(int $limit = self::DEFAULT_PAGE_SIZE, ?string $cursor = null): array
     {
@@ -101,6 +102,7 @@ final class Recovery
 
     /**
      * Restore a deleted group by ID.
+     * @return array<mixed>
      */
     public function restoreGroup(string $groupId): array
     {
