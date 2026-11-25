@@ -1,0 +1,237 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-baseurl="{{ site.baseurl }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turso Platform PHP SDK — Typed PHP client for Turso Platform API</title>
+    <meta name="description" content="Turso Platform PHP SDK is a typed, PSR-18-friendly PHP client for the Turso Platform API. Manage organizations, databases, groups, tokens, audit logs, recovery, and integrations from PHP.">
+    <meta name="theme-color" content="#141018" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#fbf9fc" media="(prefers-color-scheme: light)">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Turso Platform PHP SDK">
+    <meta property="og:title" content="Turso Platform PHP SDK — Typed PHP client for Turso Platform API">
+    <meta property="og:description" content="Typed PHP client for the Turso Platform API with PSR-18 transport, resource-first API, and tested contract coverage.">
+    <link rel="icon" href="{{ site.baseurl }}/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/landing.css">
+    <script>
+        (function () {
+            var saved;
+            try { saved = localStorage.getItem('docs-theme'); } catch (e) { saved = null; }
+            var theme = saved === 'light' || saved === 'dark'
+                ? saved
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="{{ site.baseurl }}/" aria-label="Turso Platform PHP SDK home">
+                <span class="brand__mark"><img src="{{ site.baseurl }}/images/turso-api-platform-php-logo.png" alt="" width="30" height="30"></span>
+                <span>Turso Platform PHP SDK</span>
+                <span class="brand__tag">PHP 8.3+</span>
+            </a>
+
+            <nav class="main-nav" aria-label="Primary">
+                <a href="#capabilities">Capabilities</a>
+                <a href="#resources">Resources</a>
+                <a href="#install">Install</a>
+                <a href="{{ site.baseurl }}/user-manual/">User manual</a>
+                <a href="https://github.com/darkterminal/turso-api-client-php" target="_blank" rel="noopener">GitHub</a>
+            </nav>
+
+            <div class="header-actions">
+                <a class="star-pill" href="https://github.com/darkterminal/turso-api-client-php/stargazers" target="_blank" rel="noopener" aria-label="GitHub stars">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span id="header-stars">—</span>
+                </a>
+                <button class="icon-button" id="theme-toggle" aria-label="Switch to light theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+                </button>
+                <button class="icon-button nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-panel">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-panel" id="mobile-panel">
+            <nav aria-label="Mobile">
+                <a href="#capabilities">Capabilities</a>
+                <a href="#resources">Resources</a>
+                <a href="#install">Install</a>
+                <a href="{{ site.baseurl }}/user-manual/">User manual</a>
+                <a href="https://github.com/darkterminal/turso-api-client-php">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero">
+            <img class="hero__watermark" src="{{ site.baseurl }}/images/turso-api-platform-php-logo.png" alt="" aria-hidden="true">
+            <div class="container hero-grid">
+                <div>
+                    <p class="eyebrow">Turso Platform API · PHP SDK</p>
+                    <h1>Manage Turso Platform from <em>PHP</em>.</h1>
+                    <p class="hero__sub">A typed, resource-first SDK for the Turso Platform API. Build automation around organizations, databases, groups, tokens, audit logs, recovery, and upload workflows without hand-writing raw HTTP calls.</p>
+                    <div class="hero__actions">
+                        <a class="btn btn--primary" href="{{ site.baseurl }}/user-manual/getting-started/">Get started</a>
+                        <a class="btn btn--ghost" href="{{ site.baseurl }}/user-manual/">Read the manual</a>
+                        <a class="btn btn--ghost" href="https://github.com/darkterminal/turso-api-client-php" target="_blank" rel="noopener">View source</a>
+                    </div>
+                    <ul class="hero__proof" aria-label="Highlights">
+                        <li>PHP 8.3+</li>
+                        <li>PSR-18 transport</li>
+                        <li>53 mapped operations</li>
+                        <li>Pest + PHPStan level 6</li>
+                    </ul>
+                </div>
+
+                <div class="shot-frame" aria-label="PHP example">
+                    <div class="shot-frame__bar">
+                        <span class="shot-frame__dot"></span><span class="shot-frame__dot"></span><span class="shot-frame__dot"></span>
+                        <span class="shot-frame__title">platform.php</span>
+                    </div>
+<pre><code><span class="t-kw">use</span> <span class="t-fn">Darkterminal\TursoPlatformAPI\Client\Client</span>;
+
+<span class="t-p">$</span>client = Client::<span class="t-fn">builder</span>()
+    -><span class="t-fn">withToken</span>(<span class="t-p">$_ENV</span>[<span class="t-str">'TURSO_PLATFORM_API_TOKEN'</span>])
+    -><span class="t-fn">withOrganization</span>(<span class="t-str">'acme'</span>)
+    -><span class="t-fn">build</span>();
+
+<span class="t-p">$</span>dbs = <span class="t-p">$</span>client-><span class="t-fn">databases</span>()-><span class="t-fn">list</span>();
+<span class="t-p">$</span>group = <span class="t-p">$</span>client-><span class="t-fn">groups</span>()-><span class="t-fn">create</span>(<span class="t-str">'app'</span>, <span class="t-str">'aws-us-east-1'</span>);
+<span class="t-p">$</span>token = <span class="t-p">$</span>client-><span class="t-fn">databases</span>()-><span class="t-fn">createToken</span>(<span class="t-str">'app-db'</span>);</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="stat-strip" aria-label="Project facts">
+            <div class="container stat-strip__inner">
+                <div class="stat"><span class="stat__value">53</span><span class="stat__label">Mapped Platform API operations</span></div>
+                <div class="stat"><span class="stat__value">12</span><span class="stat__label">Resource classes + integrations</span></div>
+                <div class="stat"><span class="stat__value" id="release-tag">v2.x</span><span class="stat__label">Latest release</span></div>
+                <div class="stat"><span class="stat__value" id="stars">—</span><span class="stat__label">GitHub stars</span></div>
+            </div>
+        </section>
+
+        <section class="section" id="capabilities">
+            <div class="container">
+                <div class="section__head">
+                    <p class="eyebrow">Why this SDK</p>
+                    <h2>Platform automation, with PHP ergonomics.</h2>
+                    <p>The SDK wraps the Turso Platform API contract into a small, typed client. It keeps HTTP details predictable while preserving raw response payloads for forward compatibility.</p>
+                </div>
+                <div class="pillar-grid">
+                    <article class="pillar">
+                        <div class="pillar__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
+                        <h3>Resource-first API</h3>
+                        <p>Call <code>$client-&gt;databases()</code>, <code>-&gt;groups()</code>, <code>-&gt;organizations()</code>, and other resources instead of assembling endpoint strings in every service.</p>
+                    </article>
+                    <article class="pillar">
+                        <div class="pillar__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 5-3 7.5-7 10-4-2.5-7-5-7-10V6l7-3z"/></svg></div>
+                        <h3>Predictable errors</h3>
+                        <p>HTTP failures map to specific exceptions: auth, not found, rate limit, server, transport, and validation. Credentials are never echoed in exception messages.</p>
+                    </article>
+                    <article class="pillar">
+                        <div class="pillar__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 20h10M8 9h8M8 13h5"/></svg></div>
+                        <h3>PSR-18 friendly</h3>
+                        <p>Use the default Curl transport or inject your own PSR-18 client. The builder keeps configuration immutable and explicit.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt" id="resources">
+            <div class="container">
+                <div class="section__head">
+                    <p class="eyebrow">Coverage</p>
+                    <h2>Resources mapped to the Turso Platform contract.</h2>
+                    <p>The SDK tracks operation coverage against a pinned OpenAPI snapshot. Every mapped operation has a resource method and is documented in the manual.</p>
+                </div>
+                <div class="surface-grid">
+                    <article class="surface-card"><h3>Users &amp; Auth</h3><p>Validate tokens and inspect the current user profile. <code>user()</code>, <code>auth()</code>.</p></article>
+                    <article class="surface-card"><h3>Organizations</h3><p>Read/update org settings, plans, invoices, subscription, and usage. <code>organizations()</code>.</p></article>
+                    <article class="surface-card"><h3>Members &amp; Invites</h3><p>Manage organization members and v2 invites with typed roles. <code>members()</code>, <code>invites()</code>.</p></article>
+                    <article class="surface-card"><h3>Databases</h3><p>Create, inspect, configure, token-mint, rotate, and query usage/stats. <code>databases()</code>.</p></article>
+                    <article class="surface-card"><h3>Groups</h3><p>Manage groups, locations, configuration, transfer, unarchive, and tokens. <code>groups()</code>.</p></article>
+                    <article class="surface-card"><h3>API Tokens</h3><p>Personal and organization-scoped API token lifecycle. <code>apiTokens()</code>, <code>organizationApiTokens()</code>.</p></article>
+                    <article class="surface-card"><h3>Recovery &amp; Audit</h3><p>List/restore deleted databases/groups via v3 and inspect audit logs. <code>recovery()</code>, <code>auditLogs()</code>.</p></article>
+                    <article class="surface-card"><h3>Integrations</h3><p>Standalone database upload and region resolver helpers with explicit safety checks. <code>Integrations\*</code>.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="install">
+            <div class="container install-grid">
+                <div>
+                    <div class="section__head" style="margin-bottom:24px;">
+                        <p class="eyebrow">Install</p>
+                        <h2>Start with Composer.</h2>
+                        <p>Install the package, create a Platform API token, and build a client with the immutable builder.</p>
+                    </div>
+                    <ol class="steps">
+                        <li class="step"><span class="step__num">1</span><div><h3>Install package</h3><p>Require <code>darkterminal/turso-api-client-php</code> in a PHP 8.3+ project.</p></div></li>
+                        <li class="step"><span class="step__num">2</span><div><h3>Configure token</h3><p>Use a Turso Platform API token. For v3 recovery, also provide <code>withOrganizationId()</code>.</p></div></li>
+                        <li class="step"><span class="step__num">3</span><div><h3>Call resources</h3><p>Use typed resource methods. Handle SDK exceptions at application boundaries. See the <a href="{{ site.baseurl }}/user-manual/">user manual</a>.</p></div></li>
+                    </ol>
+                </div>
+                <div class="terminal">
+                    <div class="terminal__bar">
+                        <div class="terminal__dots"><span></span><span></span><span></span></div>
+                        <span class="terminal__label">shell</span>
+                        <button class="copy-btn" id="copy-install" aria-label="Copy install command">Copy</button>
+                    </div>
+<pre><code><span class="prompt">$</span> <span id="install-command">composer require darkterminal/turso-api-client-php</span>
+
+<span class="out"># .env</span>
+<span class="prompt">$</span> export TURSO_PLATFORM_API_TOKEN=...
+
+<span class="out"># verify</span>
+<span class="prompt">$</span> php -r "require 'vendor/autoload.php'; echo class_exists(Darkterminal\\TursoPlatformAPI\\Client\\Client::class)?'ok':'missing';"</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="manual-cta">
+            <div class="container">
+                <div class="manual-cta__inner">
+                    <div>
+                        <h2>Need the full contract?</h2>
+                        <p>The user manual covers configuration, every resource, request/response shapes, enums, exceptions, recovery quirks, upload preflight checks, and troubleshooting from real CI/live-proof fixes.</p>
+                    </div>
+                    <div class="manual-cta__actions">
+                        <a class="btn btn--primary" href="{{ site.baseurl }}/user-manual/">Open user manual</a>
+                        <a class="btn btn--ghost" href="{{ site.baseurl }}/user-manual/reference/api-map/">API map</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="brand" href="{{ site.baseurl }}/"><span class="brand__mark"><img src="{{ site.baseurl }}/images/turso-api-platform-php-logo.png" alt="" width="30" height="30"></span><span>Turso Platform PHP SDK</span></a>
+                    <p>Typed PHP client for the Turso Platform API. Open source, MIT licensed.</p>
+                </div>
+                <div class="footer-col"><h4>Docs</h4><a href="{{ site.baseurl }}/user-manual/">Overview</a><a href="{{ site.baseurl }}/user-manual/getting-started/">Getting started</a><a href="{{ site.baseurl }}/user-manual/reference/api-map/">API map</a></div>
+                <div class="footer-col"><h4>Project</h4><a href="https://github.com/darkterminal/turso-api-client-php">GitHub</a><a href="https://github.com/darkterminal/turso-api-client-php/issues">Issues</a><a href="https://github.com/darkterminal/turso-api-client-php/blob/main/CHANGELOG.md">Changelog</a></div>
+                <div class="footer-col"><h4>Turso</h4><a href="https://docs.turso.tech/api-reference/introduction">Platform API docs</a><a href="https://turso.tech">turso.tech</a></div>
+            </div>
+            <div class="footer-bottom">
+                <span>© <span id="year"></span> darkterminal. MIT License.</span>
+                <span>Not an official Turso SDK unless stated by Turso.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ site.baseurl }}/assets/js/landing.js" defer></script>
+</body>
+</html>
