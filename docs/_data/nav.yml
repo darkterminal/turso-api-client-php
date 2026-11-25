@@ -1,0 +1,42 @@
+- title: Overview
+  url: /user-manual/
+  section: Introduction
+- title: Getting started
+  url: /user-manual/getting-started/
+  section: Introduction
+- title: Configuration
+  url: /user-manual/configuration/
+  section: Guide
+- title: Users, auth, and locations
+  url: /user-manual/users-auth-locations/
+  section: Resources
+- title: Organizations, members, and invites
+  url: /user-manual/organizations-members-invites/
+  section: Resources
+- title: Databases
+  url: /user-manual/databases/
+  section: Resources
+- title: Groups
+  url: /user-manual/groups/
+  section: Resources
+- title: API tokens and audit logs
+  url: /user-manual/tokens-audit-logs/
+  section: Resources
+- title: Recovery (v3)
+  url: /user-manual/recovery/
+  section: Resources
+- title: Integrations
+  url: /user-manual/integrations/
+  section: Guide
+- title: Errors and troubleshooting
+  url: /user-manual/errors-troubleshooting/
+  section: Reference
+- title: Client reference
+  url: /user-manual/reference/client/
+  section: Reference
+- title: Enums reference
+  url: /user-manual/reference/enums/
+  section: Reference
+- title: API map
+  url: /user-manual/reference/api-map/
+  section: Reference
