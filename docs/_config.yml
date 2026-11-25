@@ -26,6 +26,9 @@ exclude:
   - vendor
   - .jekyll-cache
   - _site
+  - api-map.md
+  - architecture.md
+  - troubleshooting.md
 
 defaults:
   - scope:
